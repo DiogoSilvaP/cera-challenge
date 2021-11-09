@@ -1,24 +1,13 @@
 import { FC } from "react";
-import { primaryColor } from "../constants";
+import { ButtonStyled } from "./Button.styled";
 import { Props } from "./types";
 
 const Button: FC<Props> = (props) => {
   const { onClick, style } = props;
   return (
-    <button
-      data-testid="Button"
-      onClick={onClick}
-      style={{
-        backgroundColor: primaryColor,
-        borderRadius: 4,
-        borderColor: primaryColor,
-        color: "white",
-        borderStyle: "solid",
-        ...style,
-      }}
-    >
+    <ButtonStyled data-testid="Button" onClick={onClick} style={style}>
       {props.children}
-    </button>
+    </ButtonStyled>
   );
 };
 

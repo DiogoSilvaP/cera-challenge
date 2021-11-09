@@ -5,6 +5,7 @@ import { bookSlot, fetchBookingSlots } from "../Services/carer.service";
 import { BookingSlots, Carer } from "../Services/types";
 import { Props } from "./types";
 import { v4 as uuidv4 } from "uuid";
+import { ContainerStyled } from "./Content.styled";
 
 const Content: FC<Props> = (props) => {
   const { carersList } = props;
@@ -37,13 +38,7 @@ const Content: FC<Props> = (props) => {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-        }}
-      >
+      <ContainerStyled>
         <Modal
           shouldShowBookingSlots={shouldShowBookingSlots}
           bookingSlots={bookingSlots}
@@ -60,7 +55,7 @@ const Content: FC<Props> = (props) => {
             />
           );
         })}
-      </div>
+      </ContainerStyled>
     </>
   );
 };

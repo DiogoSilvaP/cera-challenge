@@ -1,32 +1,18 @@
-import React from "react";
 import Clock from "../Clock/Clock";
-import { primaryColor } from "../constants";
 import Logo from "../Logo/Logo";
+import { ContainerStyled, TitleContainer } from "./Header.styled";
 
 const Header = () => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "row",
-      backgroundColor: primaryColor,
-      height: 148,
-      justifyContent: "space-between",
-      alignItems: "center",
-      color: "white",
-    }}
-    data-testid="Header"
-  >
-    <div style={{ display: "flex", flexDirection: "row" }}>
+  <ContainerStyled data-testid="Header">
+    <div>
       <Logo style={{ width: 196, height: 91, marginLeft: 49 }}></Logo>
-      <div style={{ display: "flex", flexDirection: "column", marginLeft: 50 }}>
-        <span style={{ fontSize: 36, fontWeight: 400 }}>Carers</span>
-        <span style={{ fontSize: 20 }}>
-          Here you'll be able to schedule your carers visits
-        </span>
-      </div>
+      <TitleContainer>
+        <span>Carers</span>
+        <span>Here you'll be able to schedule your carers visits</span>
+      </TitleContainer>
     </div>
-    <Clock style={{ marginRight: 38, fontSize: 24, fontWeight: 400 }}></Clock>
-  </div>
+    <Clock style={{ marginRight: 38, fontSize: 24 }}></Clock>
+  </ContainerStyled>
 );
 
 export default Header;

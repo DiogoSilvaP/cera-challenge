@@ -3,7 +3,12 @@ import Button from "../Button/Button";
 import { modalColor } from "../constants";
 import { Props } from "./types";
 import Modal from "react-modal";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import {
+  ModalSubTitleStyled,
+  ModalTitleStyled,
+  SlotsContainerStyled,
+} from "./Modal.styled";
 
 const ModalC: FC<Props> = ({
   shouldShowBookingSlots,
@@ -33,17 +38,9 @@ const ModalC: FC<Props> = ({
       preventScroll={true}
       isOpen={shouldShowBookingSlots}
     >
-      <span style={{ fontSize: 24, fontWeight: 400 }}>Schedule Carer</span>
-      <span style={{ fontSize: 18, fontWeight: 400 }}>{carer?.name}</span>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "space-evenly",
-          width: "90%",
-        }}
-      >
+      <ModalTitleStyled>Schedule Carer</ModalTitleStyled>
+      <ModalSubTitleStyled>{carer?.name}</ModalSubTitleStyled>
+      <SlotsContainerStyled style={{}}>
         {bookingSlots.map((bookingSlot) => {
           const [hours, minutes] = bookingSlot.split(":");
           const date = new Date();
@@ -51,7 +48,7 @@ const ModalC: FC<Props> = ({
           date.setMinutes(Number.parseInt(minutes));
           return (
             <Button
-            key={uuidv4()}
+              key={uuidv4()}
               style={{ width: "100%", minHeight: 26, fontWeight: 700 }}
               onClick={clickCallback}
             >
@@ -62,7 +59,7 @@ const ModalC: FC<Props> = ({
             </Button>
           );
         })}
-      </div>
+      </SlotsContainerStyled>
     </Modal>
   </>
 );
