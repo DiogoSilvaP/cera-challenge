@@ -4,6 +4,7 @@ import Modal from "../Modal/Modal";
 import { bookSlot, fetchBookingSlots } from "../Services/carer.service";
 import { BookingSlots, Carer } from "../Services/types";
 import { Props } from "./types";
+import { v4 as uuidv4 } from "uuid";
 
 const Content: FC<Props> = (props) => {
   const { carersList } = props;
@@ -53,6 +54,7 @@ const Content: FC<Props> = (props) => {
         {carersList?.carers.map((carer) => {
           return (
             <CarerInfo
+              key={uuidv4()}
               onClickButton={() => onClickAvailability(carer)}
               {...carer}
             />

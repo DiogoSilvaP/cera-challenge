@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import { modalColor } from "../constants";
 import { Props } from "./types";
 import Modal from "react-modal";
+import { v4 as uuidv4 } from 'uuid';
 
 const ModalC: FC<Props> = ({
   shouldShowBookingSlots,
@@ -50,6 +51,7 @@ const ModalC: FC<Props> = ({
           date.setMinutes(Number.parseInt(minutes));
           return (
             <Button
+            key={uuidv4()}
               style={{ width: "100%", minHeight: 26, fontWeight: 700 }}
               onClick={clickCallback}
             >
