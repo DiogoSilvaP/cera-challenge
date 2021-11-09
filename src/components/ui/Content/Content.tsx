@@ -7,6 +7,9 @@ import { Props } from "./types";
 import { v4 as uuidv4 } from "uuid";
 import { ContainerStyled } from "./Content.styled";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Content: FC<Props> = (props) => {
   const { carersList } = props;
 
@@ -24,9 +27,9 @@ const Content: FC<Props> = (props) => {
   const onClickBook = async () => {
     const { status } = await bookSlot();
     if (status === 200) {
-      alert("Booked!");
+      toast("Booked!", { type: "success", theme: "dark" });
     } else {
-      alert("Error while booking!");
+      toast("Error while booking!", { type: "error", theme: "dark" });
     }
     setShouldShowBookingSlots(false);
   };
@@ -38,6 +41,15 @@ const Content: FC<Props> = (props) => {
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnHover
+      />
       <ContainerStyled>
         <Modal
           shouldShowBookingSlots={shouldShowBookingSlots}
