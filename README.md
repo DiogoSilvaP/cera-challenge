@@ -5,7 +5,7 @@ About 5 hours
 ## Next Steps
 
     -Clear styles to better use styled components
-    -Cover all functionatlies with tests.
+    -Cover all functionatlies with tests
     -Design is not pixel perfect
     -Current time function has an issue (it would be necessary to calculate the difference in seconds in the first run to make it syncronize with the device clock)
     -Add proper state management and data fetching for future usage (consider react query)
